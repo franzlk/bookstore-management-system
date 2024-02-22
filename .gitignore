@@ -1,0 +1,17 @@
+# Maven specific
+/target/
+*.iml
+
+# IDE specific
+.idea/
+
+# Logs
+*.log
+
+# Compiled class file
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
