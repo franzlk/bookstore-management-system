@@ -1,0 +1,42 @@
+# Database configuration
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookstore_management_system_db
+    username: testadmin
+    password: testpassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+# Server configuration
+server:
+  port: 8080
+
+# Logging configuration
+logging:
+  level:
+    org.springframework: INFO
+    com.example: DEBUG
+
+# Security configuration
+  security:
+    user:
+      name: user
+      password: password
+
+# External service configuration
+#external-service:
+#  url: http://example.com/api
+#  api-key: YOUR_API_KEY
+
+# Database initialization
+datasource:
+    initialization-mode: always
+    schema:
+      - classpath:db/databaseDDL.sql
+      - classpath:db/testadmin_roleDDL.sql
+      - classpath:db/testuser_roleDDL.sql
+      - classpath:db/tableDDL.sql
