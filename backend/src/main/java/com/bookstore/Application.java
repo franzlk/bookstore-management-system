@@ -20,7 +20,7 @@ public class Application {
             @Override
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
                 registry.addResourceHandler("/**")
-                        .addResourceLocations("classpath:/static/")
+                        .addResourceLocations("classpath:/frontend/public/static/")
                         .resourceChain(true);
             }
         };
