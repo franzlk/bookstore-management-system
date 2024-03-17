@@ -13,7 +13,7 @@ spring:
 
 # Server configuration
 server:
-  port: 8081
+  port: 8080
 
 # Logging configuration
 logging:
@@ -36,9 +36,7 @@ logging:
 datasource:
     initialization-mode: always
     schema:
-      - classpath:resource/db/migration/databaseDDL.sql
-      - classpath:resource/db/migration/testadmin_roleDDL.sql
-      - classpath:resource/db/migration/testuser_roleDDL.sql
-      - classpath:resource/db/migration/tableDDL.sql
-      - classpath:resource/db/migration/rowDDL.sql
-
+      - classpath:db/databaseDDL.sql
+      - classpath:db/testadmin_roleDDL.sql
+      - classpath:db/testuser_roleDDL.sql
+      - classpath:db/tableDDL.sql

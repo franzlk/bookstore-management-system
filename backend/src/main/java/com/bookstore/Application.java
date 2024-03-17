@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
         public static void main(String[] args) {
-            SpringApplication.run(Application.class, args);
+            // Perform any action here
+            System.out.println("Application started and stopped successfully.");
+            // Stop the application
+            SpringApplication.exit(SpringApplication.run(Application.class, args));
     }
 }
