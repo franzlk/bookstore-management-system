@@ -93,3 +93,4 @@ INSERT INTO Inventory (book_id, quantity, price) VALUES
 (3, 20, 15.00),
 (4, 5, 30.00),
 (5, 25, 12.00);
+commit;

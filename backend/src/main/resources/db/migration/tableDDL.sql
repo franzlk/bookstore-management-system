@@ -1,6 +1,6 @@
 -- Drop tables in the reverse order of their creation
 
-DROP TABLE IF EXISTS "inventory";
+DROP TABLE IF EXISTS "inventory" cascade;
 DROP TABLE IF EXISTS "review";
 DROP TABLE IF EXISTS "order_status";
 DROP TABLE IF EXISTS "order_item";
@@ -105,3 +105,4 @@ CREATE TABLE Inventory (
     price DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (book_id) REFERENCES Book(book_id)
 );
+commit;
