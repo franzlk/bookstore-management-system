@@ -22,8 +22,8 @@ INSERT INTO Role (role_type) VALUES
 ('Moderator'),
 ('Author');
 
--- Insert data into User table
-INSERT INTO "User" (role_id, username, email, password_hash) VALUES
+-- Insert data into book_system_user table
+INSERT INTO book_system_user (role_id, username, email, password_hash) VALUES
 (2, 'user1', 'user1@example.com', 'password1'),
 (2, 'user2', 'user2@example.com', 'password2'),
 (2, 'user3', 'user3@example.com', 'password3'),
@@ -62,8 +62,8 @@ INSERT INTO Order_Status (order_status) VALUES
 ('Delivered'),
 ('Cancelled');
 
--- Insert data into "Order" table
-INSERT INTO "Order" (customer_id, order_status_id, total_price) VALUES
+-- Insert data into book_order table
+INSERT INTO book_order (customer_id, order_status_id, total_price) VALUES
 (1, 1, 50.00),
 (2, 2, 75.00),
 (3, 3, 100.00),
