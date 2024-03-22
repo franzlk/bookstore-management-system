@@ -1,43 +1,31 @@
 package com.bookstore.controller;
 
+import com.bookstore.model.Book;
+import com.bookstore.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/books")
+@CrossOrigin
 public class BookController {
 
-    // Endpoint to get all books
-    @GetMapping
-    public String getAllBooks() {
-        // Implement logic to fetch all books from the database
-        return "Get all books";
+    @Autowired
+    private BookService bookService;
+
+    public BookController() {
     }
 
-    // Endpoint to get a specific book by ID
-    @GetMapping("/{id}")
-    public String getBookById(@PathVariable Long id) {
-        // Implement logic to fetch the book with the given ID from the database
-        return "Get book with ID: " + id;
+    @PostMapping("/add")
+    public String add(@RequestBody Book book){
+        bookService.saveBook(book);
+        return "New book is added";
     }
 
-    // Endpoint to add a new book
-    @PostMapping
-    public String addBook(@RequestBody String bookDetails) {
-        // Implement logic to add a new book to the database
-        return "Add new book: " + bookDetails;
-    }
-
-    // Endpoint to update an existing book
-    @PutMapping("/{id}")
-    public String updateBook(@PathVariable Long id, @RequestBody String bookDetails) {
-        // Implement logic to update the book with the given ID in the database
-        return "Update book with ID " + id + ": " + bookDetails;
-    }
-
-    // Endpoint to delete an existing book
-    @DeleteMapping("/{id}")
-    public String deleteBook(@PathVariable Long id) {
-        // Implement logic to delete the book with the given ID from the database
-        return "Delete book with ID: " + id;
+    @GetMapping("/getAll")
+    public List<Book> getAllBooks(){
+        return bookService.getAllBooks();
     }
 }

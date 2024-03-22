@@ -1,9 +1,10 @@
 package com.bookstore.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+
 
 @Entity
 @Table(name = "\"Order\"") // "Order" is a reserved keyword in SQL, so we need to escape it with double quotes

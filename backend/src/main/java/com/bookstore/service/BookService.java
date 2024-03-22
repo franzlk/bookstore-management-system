@@ -1,6 +1,5 @@
 package com.bookstore.service;
 
-import com.bookstore.dao.BookDAO;
 import com.bookstore.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

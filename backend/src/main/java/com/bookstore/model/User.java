@@ -1,6 +1,6 @@
 package com.bookstore.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "\"User\"") // "User" is a reserved keyword in SQL, so we need to escape it with double quotes

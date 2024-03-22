@@ -1,6 +1,5 @@
 package com.bookstore.service;
 
-import com.bookstore.dao.UserDAO;
 import com.bookstore.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -10,6 +10,11 @@ spring:
     hibernate:
       ddl-auto: update
       show-sql: true
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/frontend/public/static/
+    suffix: .html
+    cache: false # Set to false for development, true for production
 
 # Server configuration
 server:
@@ -22,23 +27,22 @@ logging:
     com.example: DEBUG
 
 # Security configuration
-  security:
-    user:
-      name: user
-      password: password
+security:
+  user:
+    name: user
+    password: password
 
 # External service configuration
-#external-service:
-#  url: http://example.com/api
-#  api-key: YOUR_API_KEY
+# external-service:
+#   url: http://example.com/api
+#   api-key: YOUR_API_KEY
 
 # Database initialization
 datasource:
-    initialization-mode: always
-    schema:
-      - classpath:resource/db/migration/databaseDDL.sql
-      - classpath:resource/db/migration/testadmin_roleDDL.sql
-      - classpath:resource/db/migration/testuser_roleDDL.sql
-      - classpath:resource/db/migration/tableDDL.sql
-      - classpath:resource/db/migration/rowDDL.sql
-
+  initialization-mode: always
+  schema:
+    - classpath:resource/db/migration/databaseDDL.sql
+    - classpath:resource/db/migration/testadmin_roleDDL.sql
+    - classpath:resource/db/migration/testuser_roleDDL.sql
+    - classpath:resource/db/migration/tableDDL.sql
+    - classpath:resource/db/migration/rowDDL.sql
