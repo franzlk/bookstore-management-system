@@ -1,10 +1,10 @@
 package com.bookstore.model;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal; // Import BigDecimal class
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "Order_Item")
+@Table(name = "order_item")
 public class OrderItem {
 
     @Id
@@ -16,11 +16,50 @@ public class OrderItem {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @Column(name = "price", nullable = false, precision = 10, scale = 2)
+    @Column(name = "price", nullable = false)
     private BigDecimal price;
 
     @Column(name = "quantity", nullable = false)
     private int quantity;
 
-    // Constructors, getters, and setters
+    public OrderItem() {
+    }
+
+    public OrderItem(Order order, BigDecimal price, int quantity) {
+        this.order = order;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
