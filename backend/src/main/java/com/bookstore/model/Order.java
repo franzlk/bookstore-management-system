@@ -2,12 +2,10 @@ package com.bookstore.model;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
-
+import java.sql.Timestamp;
 
 @Entity
-@Table(name = "\"Order\"") // "Order" is a reserved keyword in SQL, so we need to escape it with double quotes
+@Table(name = "order")
 public class Order {
 
     @Id
@@ -24,13 +22,58 @@ public class Order {
     private OrderStatus orderStatus;
 
     @Column(name = "order_date", nullable = false)
-    private LocalDateTime orderDate;
+    private Timestamp orderDate;
 
-    @Column(name = "total_price", nullable = false, precision = 10, scale = 2)
+    @Column(name = "total_price", nullable = false)
     private BigDecimal totalPrice;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems;
+    public Order() {
+    }
 
-    // Constructors, getters, and setters
+    public Order(User customer, OrderStatus orderStatus, Timestamp orderDate, BigDecimal totalPrice) {
+        this.customer = customer;
+        this.orderStatus = orderStatus;
+        this.orderDate = orderDate;
+        this.totalPrice = totalPrice;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(User customer) {
+        this.customer = customer;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public Timestamp getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Timestamp orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 }

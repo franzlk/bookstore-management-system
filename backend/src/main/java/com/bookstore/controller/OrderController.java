@@ -1,44 +1,28 @@
 package com.bookstore.controller;
 
+import com.bookstore.model.Order;
+import com.bookstore.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
 @CrossOrigin
 public class OrderController {
 
-    // Endpoint to get all orders
-    @GetMapping
-    public String getAllOrders() {
-        // Implement logic to fetch all orders from the database
-        return "Get all orders";
+    @Autowired
+    private OrderService orderService;
+
+    @PostMapping("/add")
+    public String addOrder(@RequestBody Order order) {
+        orderService.saveOrder(order);
+        return "New order added successfully";
     }
 
-    // Endpoint to get a specific order by ID
-    @GetMapping("/{id}")
-    public String getOrderById(@PathVariable Long id) {
-        // Implement logic to fetch the order with the given ID from the database
-        return "Get order with ID: " + id;
-    }
-
-    // Endpoint to place a new order
-    @PostMapping
-    public String placeOrder(@RequestBody String orderDetails) {
-        // Implement logic to place a new order in the database
-        return "Place new order: " + orderDetails;
-    }
-
-    // Endpoint to update an existing order
-    @PutMapping("/{id}")
-    public String updateOrder(@PathVariable Long id, @RequestBody String orderDetails) {
-        // Implement logic to update the order with the given ID in the database
-        return "Update order with ID " + id + ": " + orderDetails;
-    }
-
-    // Endpoint to cancel an existing order
-    @DeleteMapping("/{id}")
-    public String cancelOrder(@PathVariable Long id) {
-        // Implement logic to cancel the order with the given ID in the database
-        return "Cancel order with ID: " + id;
+    @GetMapping("/getAll")
+    public List<Order> getAllOrders() {
+        return orderService.getAllOrders();
     }
 }
