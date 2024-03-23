@@ -1,17 +1,17 @@
 -- Drop tables in the reverse order of their creation
 
-DROP TABLE IF EXISTS "inventory" cascade;
-DROP TABLE IF EXISTS "review";
-DROP TABLE IF EXISTS "order_status";
-DROP TABLE IF EXISTS "order_item";
-DROP TABLE IF EXISTS "book_order";
-DROP TABLE IF EXISTS "author_book";
-DROP TABLE IF EXISTS "book";
-DROP TABLE IF EXISTS "genre";
-DROP TABLE IF EXISTS "book_system_user";
-DROP TABLE IF EXISTS "role";
-DROP TABLE IF EXISTS "author";
-DROP TABLE IF EXISTS "publisher";
+DROP TABLE IF EXISTS Inventory;
+DROP TABLE IF EXISTS Review;
+DROP TABLE IF EXISTS Order_Item;
+DROP TABLE IF EXISTS book_order;
+DROP TABLE IF EXISTS Order_Status;
+DROP TABLE IF EXISTS Author_Book;
+DROP TABLE IF EXISTS Book;
+DROP TABLE IF EXISTS Genre;
+DROP TABLE IF EXISTS Publisher;
+DROP TABLE IF EXISTS Author;
+DROP TABLE IF EXISTS book_system_user;
+DROP TABLE IF EXISTS Role;
 
 
 CREATE TABLE Role (
@@ -106,3 +106,4 @@ CREATE TABLE Inventory (
     FOREIGN KEY (book_id) REFERENCES Book(book_id)
 );
 commit;
+
