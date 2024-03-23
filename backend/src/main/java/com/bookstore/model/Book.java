@@ -8,9 +8,8 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String ISBN;
+    @JoinColumn(name = "book_id")
+    private Long bookId;
 
     @ManyToOne
     @JoinColumn(name = "publisher_id")
@@ -24,15 +23,17 @@ public class Book {
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
+    private String ISBN;
+
     public Book() {
     }
 
     public Long getId() {
-        return id;
+        return bookId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.bookId = id;
     }
 
     public String getISBN() {
