@@ -46,4 +46,18 @@ public class CryptoHash {
         }
         return convertedString;
     }
+
+    public static void generateTestPasswords(){
+        try{
+            System.out.println(CryptoHash.toHexString(CryptoHash.getSHA( "password1")));
+            System.out.println(CryptoHash.toHexString(CryptoHash.getSHA( "password2")));
+            System.out.println(CryptoHash.toHexString(CryptoHash.getSHA( "password3")));
+            System.out.println(CryptoHash.toHexString(CryptoHash.getSHA( "password4")));
+            System.out.println(CryptoHash.toHexString(CryptoHash.getSHA( "password5")));
+        }
+        catch (NoSuchAlgorithmException e){
+            System.out.println("Exception thrown for incorrect algorithm: " + e);
+        }
+
+    }
 }

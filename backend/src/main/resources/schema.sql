@@ -24,7 +24,7 @@ CREATE TABLE book_system_user (
     role_id INT NOT NULL,
     username VARCHAR(50) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    password_hash VARCHAR(60) NOT NULL,
+    password_hash VARCHAR(64) NOT NULL,
     FOREIGN KEY (role_id) REFERENCES Role(role_id)
 );
 

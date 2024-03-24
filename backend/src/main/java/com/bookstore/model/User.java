@@ -2,6 +2,8 @@ package com.bookstore.model;
 
 import jakarta.persistence.*;
 
+import java.security.NoSuchAlgorithmException;
+
 @Entity
 @Table(name = "book_system_user")
 public class User {
@@ -27,11 +29,11 @@ public class User {
     public User() {
     }
 
-    public User(Role role, String username, String email, String passwordHash) {
+    public User(Role role, String username, String email, String plaintextPassword) throws NoSuchAlgorithmException {
         this.role = role;
         this.username = username;
         this.email = email;
-        this.passwordHash = passwordHash;
+        this.passwordHash = CryptoHash.toHexString(CryptoHash.getSHA(plaintextPassword));
     }
 
     public Long getId() {
@@ -72,5 +74,9 @@ public class User {
 
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
+    }
+
+    public void setPassword(String plaintextPassword) throws NoSuchAlgorithmException {
+        this.passwordHash = CryptoHash.toHexString(CryptoHash.getSHA(plaintextPassword));
     }
 }

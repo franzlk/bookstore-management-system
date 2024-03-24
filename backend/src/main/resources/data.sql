@@ -24,11 +24,11 @@ INSERT INTO Role (role_type) VALUES
 
 -- Insert data into book_system_user table
 INSERT INTO book_system_user (role_id, username, email, password_hash) VALUES
-(2, 'user1', 'user1@example.com', 'password1'),
-(2, 'user2', 'user2@example.com', 'password2'),
-(2, 'user3', 'user3@example.com', 'password3'),
-(2, 'user4', 'user4@example.com', 'password4'),
-(2, 'user5', 'user5@example.com', 'password5');
+(2, 'user1', 'user1@example.com', 'b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e'), --password1
+(2, 'user2', 'user2@example.com', '6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4'), --password2
+(2, 'user3', 'user3@example.com', '5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764'), --password3
+(2, 'user4', 'user4@example.com', 'b97873a40f73abedd8d685a7cd5e5f85e4a9cfb83eac26886640a0813850122b'), --password4
+(2, 'user5', 'user5@example.com', '8b2c86ea9cf2ea4eb517fd1e06b74f399e7fec0fef92e3b482a6cf2e2b092023'); --password5
 
 -- Insert data into Genre table
 INSERT INTO Genre (genre_name) VALUES
