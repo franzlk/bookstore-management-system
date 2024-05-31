@@ -15,11 +15,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
-}
+
 
 input {
   width: 100%;
@@ -29,12 +25,12 @@ input {
   border-radius: 5px;
   font-size: 16px;
   box-sizing: border-box;
-  border-color: #388E3C;
+  border-color: #333; 
 }
 
 input:focus {
-  border-color: #333; /* Dark Gray */
-  outline: none; /* Remove default focus outline */
+  border-color:  #388E3C;
+  outline: none;
 }
 
 button {
