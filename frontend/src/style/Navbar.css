@@ -1,0 +1,34 @@
+.navbar {
+    width: 100%;
+    background-color: #3E8E41; /* Darker Green */
+    padding: 10px 0;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    float:left;
+    height: 50px;
+    background-color: #333;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav-links a:hover {
+    background-color: green;
+  
+  }

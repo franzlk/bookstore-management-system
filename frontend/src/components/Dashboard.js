@@ -1,13 +1,14 @@
 import React from 'react';
-import Header from './Header';
+import Navbar from './Navbar';
 import Feed from './Feed';
 import Footer from './Footer';
+import '../App.css';
+
 
 const Dashboard = () => {
     return (
         <div>
-            <p>test</p>
-            <Header />
+            <Navbar />
             <Feed />
             <Footer />
         </div>
