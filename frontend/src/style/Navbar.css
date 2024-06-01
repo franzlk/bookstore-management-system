@@ -1,34 +1,105 @@
+/* Navbar.css */
+
 .navbar {
-    width: 100%;
-    background-color: #3E8E41; /* Darker Green */
-    padding: 10px 0;
-  }
+  width: 100%;
+  background-color: #3E8E41; /* Darker Green */
+  padding-top:10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between; /* Space items to the edges */
+  align-items: center; /* Center items vertically */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #333;
+}
+
+.left-links,
+.right-links {
+  display: flex; 
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 22px 16px;
+  text-decoration: none;
+  font-size: 16px; 
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: green;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown a {
+  font-size: 28px; 
+  padding: 16px 16px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0; 
   
-  .nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    float:left;
-    height: 50px;
-    background-color: #333;
-  }
-  
-  .nav-links li {
-    margin: 0 15px;
-  }
-  
-  .nav-links a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .nav-links a:hover {
-    background-color: green;
-  
-  }
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  min-width: 160px;
+  display: block;
+  font-size: 16px; 
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.logout-button{
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display:block; /* Show dropdown on hover and focus */
+}
+
+.dropdown:hover a,
+.dropdown:focus-within a {
+  background-color: #3E8E41;
+}
+
+/* Styles for the logout button */
+.logout-button {
+  padding: 12px 16px;
+  background-color:#333;
+  color: white;
+  text-decoration: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color:#3E8E41;
+}

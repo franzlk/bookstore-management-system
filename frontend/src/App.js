@@ -7,22 +7,27 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
-
   useEffect(() => {
-    if (isLoggedIn) {
+    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    if (loggedIn) {
+      setIsLoggedIn(true);
+      // Only navigate after setting the state
       navigate('/dashboard');
     }
-  }, [isLoggedIn, navigate]);
+  }, [navigate]);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
+    navigate('/dashboard'); // Navigate after setting the state
+  };
 
   return (
     <Routes>
       <Route path="/" element={<Login handleLogin={handleLogin} />} />
       <Route
         path="/dashboard"
-        element={isLoggedIn ? <Dashboard /> : <Navigate to="/" replace />}
+        element={isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />}
       />
     </Routes>
   );

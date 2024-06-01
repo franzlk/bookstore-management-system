@@ -46,7 +46,7 @@ const Login = ({ handleLogin }) => {
                 <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 {error && <div style={{ color: 'red' }}>{error}</div>} {/* Display error message */}
-                <button type="submit">Login</button>
+                <button className="login-button" type="submit">Login</button>
             </form>
         </div>
     );

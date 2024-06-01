@@ -4,15 +4,14 @@ import Feed from './Feed';
 import Footer from './Footer';
 import '../App.css';
 
-
-const Dashboard = () => {
-    return (
-        <div>
-            <Navbar />
-            <Feed />
-            <Footer />
-        </div>
-    );
+const Dashboard = ({ setIsLoggedIn }) => {
+  return (
+    <div>
+      <Navbar setIsLoggedIn={setIsLoggedIn} />
+      <Feed />
+      <Footer />
+    </div>
+  );
 };
 
 export default Dashboard;
