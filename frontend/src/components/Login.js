@@ -32,8 +32,8 @@ const Login = ({ handleLogin }) => {
             }
         } catch (error) {
             // Network error or other exception
-            console.error('Error occurred during login:', error.message);
-            setError('An error occurred during login');
+            console.error('Error occurred when loading feed', error.message);
+            setError('An error occurred when loading feed');
         }
     };
 
