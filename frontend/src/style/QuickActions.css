@@ -1,9 +1,13 @@
 .quick-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-  }
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  margin: 20px 0px 0px 20px;
+  flex-direction: column;
+  position: fixed;
+  top: 70px; 
+  left: 0; 
+}
   
   .quick-actions button {
     padding: 10px 20px;
@@ -13,8 +17,12 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    max-height: 50px;
+    border-radius: 50%;
+
   }
   
   .quick-actions button:hover {
     background-color: #388E3C; /* Darker Green */
+    width: 100px;
   }

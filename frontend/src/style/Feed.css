@@ -1,10 +1,11 @@
 .feed {
-    display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    padding-bottom: 70px;
-  }
+  display: grid;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  padding-bottom: 70px;
+
+}
   
   h2 {
     margin-bottom: 10px;
@@ -15,11 +16,11 @@
   .feed-item {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* Add a subtle shadow for depth */
-    width: 80%; /* Adjust the width as needed */
-    max-width: 500px; /* Limit the maximum width for larger screens */
-    padding: 20px; /* Add padding for spacing */
-    margin: 20px 0; /* Add margin for spacing between items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); 
+    width: 80%; 
+    min-width: 500px; 
+    padding: 20px; 
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
   }
