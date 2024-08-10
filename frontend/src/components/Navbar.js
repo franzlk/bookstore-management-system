@@ -20,6 +20,7 @@ const Navbar = ({ setIsLoggedIn }) => {
                     <li><Link to="/contact">Contact</Link></li>
                 </div>
                 <div className="right-links">
+                    <input type="search" id="search" name="search" placeholder='Search Orders'/>
                     <li className="dropdown">
                         <a href="#settings">&#x2699;<i className="fa fa-caret-down"></i></a>
                         <div className="dropdown-content">

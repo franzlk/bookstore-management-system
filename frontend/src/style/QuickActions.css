@@ -1,28 +1,33 @@
 .quick-actions {
-  display: flex;
+  display:flex;
   justify-content: left;
   gap: 10px;
-  margin: 20px 0px 0px 20px;
   flex-direction: column;
   position: fixed;
-  top: 70px; 
-  left: 0; 
+  bottom: 80px;
+  left: 10px;
 }
   
   .quick-actions button {
-    padding: 10px 20px;
-    background-color: #4CAF50; /* Green */
-    color: white;
-    border: none;
-    border-radius: 5px;
+    padding: 6px 10px;
+    background-color: white; /* Green */
+    color: lightgray;
+    border: solid;
+    border-color: lightgray;
     cursor: pointer;
-    font-size: 16px;
-    max-height: 50px;
-    border-radius: 50%;
+    font-size: 18px;
+    border-radius: 10%;
+    transition: .5s;
+  }
 
+  .quick-actions button:hover{
+    background-color: #333; 
+    
   }
+
+  @media only screen and (max-width: 865px) {
+    .quick-actions {
+        display: none;
+    }
+}
   
-  .quick-actions button:hover {
-    background-color: #388E3C; /* Darker Green */
-    width: 100px;
-  }
