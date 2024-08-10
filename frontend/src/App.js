@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard'; 
+import About from './components/About';
+import Contact from './components/Contact';
 import './App.css';
 
 function App() {
@@ -26,10 +28,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Login handleLogin={handleLogin} />} />
-      <Route
-        path="/dashboard"
-        element={isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />}
-      />
+      <Route path="/dashboard" element={isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />}/>
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }
