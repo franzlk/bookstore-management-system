@@ -3,10 +3,10 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import '../style/About.css';
 
-const About = () => {
+const About = ({ setIsLoggedIn }) => {
   return (
     <div>
-      <Navbar />
+      <Navbar setIsLoggedIn={setIsLoggedIn} />
       <div className="about-container">
         <h1>About Us</h1>
         <p>

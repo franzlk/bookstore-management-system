@@ -18,8 +18,8 @@ function App() {
     <Routes>
       <Route path="/" element={isLoggedIn ? <Navigate to="/dashboard" replace /> : <Login handleLogin={() => setIsLoggedIn(true)} />} />
       <Route path="/dashboard" element={isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />} />
-      <Route path="/about" element={isLoggedIn ? <About /> : <Navigate to="/" replace />} />
-      <Route path="/contact" element={isLoggedIn ? <Contact /> : <Navigate to="/" replace />} />
+      <Route path="/about" element={isLoggedIn ? <About setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />} />
+      <Route path="/contact" element={isLoggedIn ? <Contact setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />} />
     </Routes>
   );
 }

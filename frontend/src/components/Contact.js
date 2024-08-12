@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import '../style/Contact.css';
 
-const Contact = () => {
+const Contact = ({ setIsLoggedIn }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,7 +24,7 @@ const Contact = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar setIsLoggedIn={setIsLoggedIn} />
       <div className="contact-container">
         <h1>Contact Us</h1>
         <form onSubmit={handleSubmit} className="contact-form">
