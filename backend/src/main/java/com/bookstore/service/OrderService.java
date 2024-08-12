@@ -8,4 +8,6 @@ public interface OrderService {
     Order saveOrder(Order order);
 
     List<Order> getAllOrders();
+
+    List<Order> searchOrders(String keyword);
 }

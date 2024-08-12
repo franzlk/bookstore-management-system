@@ -3,7 +3,7 @@
     background-color: #333333; /* Dark Gray */
     color: #f0f0f0;
     text-align: center;
-    position:static;
+    position:fixed;
     bottom: 0;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   }

@@ -25,4 +25,9 @@ public class OrderController {
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();
     }
+
+    @GetMapping("/search")
+    public List<Order> searchOrders(@RequestParam String keyword) {
+        return orderService.searchOrders(keyword);
+    }
 }

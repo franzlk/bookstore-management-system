@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../style/Navbar.css';
 
-const Navbar = ({ setIsLoggedIn }) => {
+const Navbar = ({ setIsLoggedIn, onSearch }) => {
     const navigate = useNavigate();
+    const [searchTerm, setSearchTerm] = useState('');
 
     const handleLogout = () => {
         if (setIsLoggedIn) {
@@ -15,6 +16,14 @@ const Navbar = ({ setIsLoggedIn }) => {
         }
     };
 
+    const handleSearch = async (event) => {
+        const term = event.target.value;
+        setSearchTerm(term);
+        onSearch(term); // Pass the search term to the parent component
+    };
+
+
+
     return (
         <nav className="navbar">
             <ul className="nav-links">
@@ -24,7 +33,14 @@ const Navbar = ({ setIsLoggedIn }) => {
                     <li><Link to="/contact">Contact</Link></li>
                 </div>
                 <div className="right-links">
-                    <input type="search" id="search" name="search" placeholder='Search Orders'/>
+                    <input
+                        type="search"
+                        id="search"
+                        name="search"
+                        placeholder='Search by Customer'
+                        value={searchTerm}
+                        onChange={handleSearch}
+                    />
                     <li className="dropdown">
                         <a href="#settings">&#x2699;<i className="fa fa-caret-down"></i></a>
                         <div className="dropdown-content">
