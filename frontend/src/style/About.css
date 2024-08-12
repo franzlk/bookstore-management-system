@@ -1,0 +1,15 @@
+.about-container {
+    padding: 20px;
+    background-color: #f4f4f4; /* Light gray background */
+    min-height: calc(100vh - 80px); /* Adjust based on header and footer height */
+  }
+  
+  .about-container h1 {
+    color: #333; /* Dark text color */
+  }
+  
+  .about-container p {
+    color: #666; /* Lighter text color */
+    margin-bottom: 20px; /* Spacing between paragraphs */
+  }
+  

@@ -6,9 +6,13 @@ const Navbar = ({ setIsLoggedIn }) => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        setIsLoggedIn(false);
-        localStorage.removeItem('isLoggedIn');
-        navigate('/');
+        if (setIsLoggedIn) {
+            setIsLoggedIn(false);
+            localStorage.removeItem('isLoggedIn');
+            navigate('/');
+        } else {
+            console.error("setIsLoggedIn is not provided");
+        }
     };
 
     return (

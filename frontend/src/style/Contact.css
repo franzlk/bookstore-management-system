@@ -1,0 +1,57 @@
+.contact-container {
+    padding: 20px;
+    background-color: #f4f4f4; /* Light gray background */
+    min-height: calc(100vh - 80px); /* Adjust based on header and footer height */
+  }
+  
+  .contact-container h1 {
+    color: #333; /* Dark text color */
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff; /* White background for form */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in width */
+  }
+  
+  .form-group textarea {
+    height: 150px; /* Taller textarea */
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #3E8E41; /* Darker Green */
+    color: #fff;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2c6c2f; /* Darker green on hover */
+  }
+  
