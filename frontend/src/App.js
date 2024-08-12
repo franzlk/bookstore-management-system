@@ -14,9 +14,19 @@ function App() {
     setIsLoggedIn(loggedIn);
   }, []);
 
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+  };
+
   return (
     <Routes>
-      <Route path="/" element={isLoggedIn ? <Navigate to="/dashboard" replace /> : <Login handleLogin={() => setIsLoggedIn(true)} />} />
+      <Route path="/" element={isLoggedIn ? <Navigate to="/dashboard" replace /> : <Login handleLogin={handleLogin} />} />
       <Route path="/dashboard" element={isLoggedIn ? <Dashboard setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />} />
       <Route path="/about" element={isLoggedIn ? <About setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />} />
       <Route path="/contact" element={isLoggedIn ? <Contact setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/" replace />} />
