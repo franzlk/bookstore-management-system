@@ -27,4 +27,15 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> searchOrders(String keyword) {
         return orderRepository.findByCustomerUsernameContainingIgnoreCase(keyword);
     }
+
+    @Override
+    public boolean deleteOrder(Long id) {
+        // Check if the order exists
+        if (orderRepository.existsById(id)) {
+            orderRepository.deleteById(id); // Delete the order from the database
+            return true;
+        } else {
+            return false; // Return false if the order does not exist
+        }
+    }
 }

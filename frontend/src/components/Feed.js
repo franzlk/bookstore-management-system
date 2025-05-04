@@ -37,6 +37,24 @@ const Feed = ({ searchTerm }) => {
         }
     }, [searchTerm, allOrders]);
 
+    const deleteOrder = async (orderId) => {
+        try {
+            const response = await fetch(`http://localhost:8081/api/orders/delete/${orderId}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to delete order with ID: ${orderId}`);
+            }
+
+            // Remove the deleted order from the displayOrders and allOrders state
+            setAllOrders((prevOrders) => prevOrders.filter(order => order.id !== orderId));
+            setDisplayOrders((prevOrders) => prevOrders.filter(order => order.id !== orderId));
+        } catch (error) {
+            console.error('Error deleting order:', error);
+        }
+    };
+
     return (
         <div className="feed">
             {displayOrders.map((order, index) => (
@@ -46,6 +64,8 @@ const Feed = ({ searchTerm }) => {
                     <p>Status: {order.orderStatus.orderStatus}</p>
                     <p>Date: {new Date(order.orderDate).toLocaleString()}</p>
                     <p>Total Price: ${order.totalPrice.toFixed(2)}</p>
+                    {/* Delete Button */}
+                    <button onClick={() => deleteOrder(order.id)} className="delete-button">Delete</button>
                 </div>
             ))}
         </div>

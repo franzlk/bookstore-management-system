@@ -10,5 +10,7 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     // Find orders by the customer's username containing the keyword, case-insensitive
     List<Order> findByCustomerUsernameContainingIgnoreCase(String keyword);
+
+    void deleteById(Long id);
 }
 

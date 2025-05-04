@@ -30,4 +30,14 @@ public class OrderController {
     public List<Order> searchOrders(@RequestParam String keyword) {
         return orderService.searchOrders(keyword);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteOrder(@PathVariable Long id) {
+        boolean isDeleted = orderService.deleteOrder(id);
+        if (isDeleted) {
+            return "Order deleted successfully.";
+        } else {
+            return "Order not found.";
+        }
+}
 }

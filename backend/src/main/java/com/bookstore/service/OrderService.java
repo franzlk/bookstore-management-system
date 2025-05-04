@@ -10,4 +10,6 @@ public interface OrderService {
     List<Order> getAllOrders();
 
     List<Order> searchOrders(String keyword);
+
+    boolean deleteOrder(Long id);
 }

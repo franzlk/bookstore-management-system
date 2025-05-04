@@ -84,7 +84,7 @@ CREATE TABLE Order_Item (
     order_id INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     quantity INT NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES book_order(order_id)
+    FOREIGN KEY (order_id) REFERENCES book_order(order_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Review (
