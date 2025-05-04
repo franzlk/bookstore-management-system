@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../style/QuickActions.css';
 
-const QuickActions = ({ refreshFeed }) => { // Receive the refreshFeed callback from parent component
+const QuickActions = ({ refreshFeed }) => {
     const [showModal, setShowModal] = useState(false);
     const [orderStatuses, setOrderStatuses] = useState([]);
     const [users, setUsers] = useState([]);
@@ -10,6 +10,7 @@ const QuickActions = ({ refreshFeed }) => { // Receive the refreshFeed callback 
     const [totalPrice, setTotalPrice] = useState("");
     const [loading, setLoading] = useState(false);
     const [confirmationMessage, setConfirmationMessage] = useState("");
+    const [modalPage, setModalPage] = useState('select'); // Track modal page (select or add order)
 
     // Fetch order statuses and users
     useEffect(() => {
@@ -65,7 +66,7 @@ const QuickActions = ({ refreshFeed }) => { // Receive the refreshFeed callback 
         .then(() => {
             setConfirmationMessage("Order added successfully!");
             setLoading(false);
-            setShowModal(false);
+            setModalPage('select'); // Go back to the action selection page
             setTotalPrice("");
             setSelectedUser("");
             setSelectedStatus("");
@@ -78,6 +79,15 @@ const QuickActions = ({ refreshFeed }) => { // Receive the refreshFeed callback 
         });
     };
 
+    const handleSelectAction = (action) => {
+        setModalPage(action); // Set modal page to 'addOrder' when 'Add Order' is selected
+    };
+
+    const handleCancel = () => {
+        setModalPage('select'); // Go back to the action selection page
+        setShowModal(false); // Close the modal entirely
+    };
+
     return (
         <div className="quick-actions">
             <button onClick={() => setShowModal(true)}>Quick Actions</button>
@@ -85,49 +95,61 @@ const QuickActions = ({ refreshFeed }) => { // Receive the refreshFeed callback 
             {showModal && (
                 <div className="modal-overlay">
                     <div className="modal-content">
-                        <h2>Add New Order</h2>
+                        {modalPage === 'select' ? (
+                            <>
+                                <h2>Select an Action</h2>
+                                <div className="action-buttons">
+                                    <button onClick={() => handleSelectAction('addOrder')}>Add Order</button>
+                                    {/* Add more actions here as you expand */}
+                                </div>
+                            </>
+                        ) : modalPage === 'addOrder' ? (
+                            <>
+                                <h2>Add New Order</h2>
 
-                        {/* Customer Dropdown */}
-                        <label>Customer:</label>
-                        <select value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
-                            <option value="">Select Customer</option>
-                            {users.map((user) => (
-                                <option key={user.id} value={user.id}>
-                                    {user.username}
-                                </option>
-                            ))}
-                        </select>
+                                {/* Customer Dropdown */}
+                                <label>Customer:</label>
+                                <select value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
+                                    <option value="">Select Customer</option>
+                                    {users.map((user) => (
+                                        <option key={user.id} value={user.id}>
+                                            {user.username}
+                                        </option>
+                                    ))}
+                                </select>
 
-                        {/* Status Dropdown */}
-                        <label>Status:</label>
-                        <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
-                            <option value="">Select Status</option>
-                            {orderStatuses.map((status) => (
-                                <option key={status.id} value={status.id}>
-                                    {status.orderStatus}
-                                </option>
-                            ))}
-                        </select>
+                                {/* Status Dropdown */}
+                                <label>Status:</label>
+                                <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
+                                    <option value="">Select Status</option>
+                                    {orderStatuses.map((status) => (
+                                        <option key={status.id} value={status.id}>
+                                            {status.orderStatus}
+                                        </option>
+                                    ))}
+                                </select>
 
-                        {/* Price Input */}
-                        <label>Total Price:</label>
-                        <input
-                            type="number"
-                            value={totalPrice}
-                            onChange={(e) => setTotalPrice(e.target.value)}
-                            placeholder="Enter total price"
-                        />
+                                {/* Price Input */}
+                                <label>Total Price:</label>
+                                <input
+                                    type="number"
+                                    value={totalPrice}
+                                    onChange={(e) => setTotalPrice(e.target.value)}
+                                    placeholder="Enter total price"
+                                />
 
-                        {/* Confirmation Message */}
-                        {confirmationMessage && <p className="confirmation-message">{confirmationMessage}</p>}
+                                {/* Confirmation Message */}
+                                {confirmationMessage && <p className="confirmation-message">{confirmationMessage}</p>}
 
-                        {/* Modal Actions */}
-                        <div className="modal-actions">
-                            <button onClick={handleAddOrder} disabled={loading}>
-                                {loading ? "Adding Order..." : "Add Order"}
-                            </button>
-                            <button onClick={() => setShowModal(false)}>Cancel</button>
-                        </div>
+                                {/* Modal Actions */}
+                                <div className="modal-actions">
+                                    <button onClick={handleAddOrder} disabled={loading}>
+                                        {loading ? "Adding Order..." : "Add Order"}
+                                    </button>
+                                    <button onClick={handleCancel}>Cancel</button>
+                                </div>
+                            </>
+                        ) : null}
                     </div>
                 </div>
             )}
