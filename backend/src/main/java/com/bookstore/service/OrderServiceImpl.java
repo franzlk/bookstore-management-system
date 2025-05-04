@@ -39,4 +39,10 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
+    @Override
+    public Order getOrderById(Long id) {
+        return orderRepository.findById(id).orElse(null); // Return null if order is not found
+    }
+
+
 }

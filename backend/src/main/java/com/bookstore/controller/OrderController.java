@@ -13,6 +13,8 @@ import com.bookstore.dto.OrderRequestDTO;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/orders")
@@ -89,4 +91,34 @@ public class OrderController {
             return ResponseEntity.status(500).body("Failed to delete order: " + e.getMessage());
         }
     }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Map<String, String>> updateOrder(@PathVariable Long id, @RequestBody OrderRequestDTO orderRequest) {
+        try {
+            Order order = orderService.getOrderById(id);
+            if (order == null) {
+                Map<String, String> response = new HashMap<>();
+                response.put("message", "Order not found.");
+                return ResponseEntity.status(404).body(response);
+            }
+
+            OrderStatus status = orderStatusRepository.findById(orderRequest.getOrderStatusId())
+                    .orElseThrow(() -> new RuntimeException("Order status not found"));
+
+            order.setOrderStatus(status);
+            order.setTotalPrice(orderRequest.getTotalPrice());
+            orderService.saveOrder(order);
+
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Order updated successfully.");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", e.getMessage());
+            return ResponseEntity.status(500).body(errorResponse);
+        }
+    }
+
+
 }
